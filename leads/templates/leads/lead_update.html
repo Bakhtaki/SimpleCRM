@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load tailwind_filters %}
+
+{% block content %}
+<section class="text-gray-600 body-font overflow-hidden">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="lg:w-4/5 mx-auto flex flex-wrap">
+      <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+        <h2 class="text-sm title-font text-gray-500 tracking-widest">Lead Details</h2>
+        <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">{{lead.first_name}} {{lead.last_name}}</h1>
+        <div class="flex mb-4">
+          <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">
+            Update
+          </a>
+          <a href="{% url 'leads:lead_category_update' lead.pk %}"
+            class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">
+            Category
+          </a>
+          <a href="{% url 'leads:lead_detail' lead.pk %}"
+            class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">
+            OverView
+          </a>
+        </div>
+        <form method='post'>
+          {% csrf_token %}
+          {{ form|crispy }}
+          <button type='submit' class=" mb-5 w-full bg-blue-500 text-white hover:bg-blue-600 px-1 py-2 rounded-md">
+            submit</button>
+        </form>
+        <a  href="{% url 'leads:lead_delete' lead.pk  %}"class=" mgt-5 w-1/2  text-white justify-center bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+          Delete
+        </a>
+      </div>
+      <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+        src="https://dummyimage.com/400x400">
+    </div>
+  </div>
+  </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "SimpleCRM",
+            "group": "localhost",
+            "database": "${workspaceFolder:SimpleCRM}/db.sqlite3"
+        }
+    ],
+    "cSpell.words": [
+        "Dont",
+        "nostatic",
+        "simplecrm",
+        "simplecrmuser"
+    ]
+}

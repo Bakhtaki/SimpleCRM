@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load tailwind_filters %}
+
+{% block content %}
+<div class="max-w-lg mx-auto">
+    <a  class="hover:text-blue-500" href=" {% url 'leads:lead_list'%}">Go Back To leads</a>
+    <h1 class="text-4xl mb-5 ">Do you Want to delete the Lead?</h1>
+    <form method='post'>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type='submit' class="w-full bg-blue-500 text-white hover:bg-blue-600 px-1 py-2 rounded-md">
+            submit
+        </button>
+    </form>
+</div>
+{% endblock content %}
